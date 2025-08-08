@@ -2,35 +2,34 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import React from 'react';
 
-// Animation for auto-scrolling carousel
-const scrollVariants = {
+// ✅ Fixed: Framer Motion animation config
+const scrollVariants: Variants = {
   animate: {
     x: ['0%', '-50%'],
     transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: 'loop',
-        duration: 20,
-        ease: 'linear',
-      },
+      repeat: Infinity,
+      repeatType: 'loop', // ✅ Correct type
+      duration: 20,
+      ease: 'linear',
     },
   },
 };
 
-// Logo Carousel Component
-type LogoCarouselProps = {
+const LogoCarousel = ({
+  title,
+  logos,
+}: {
   title: string;
   logos: string[];
-};
-
-const LogoCarousel: React.FC<LogoCarouselProps> = ({ title, logos }) => {
+}) => {
   return (
     <div className="my-24">
-      <h3 className="text-xl md:text-2xl font-semibold text-center mb-6">{title}</h3>
+      <h3 className="text-xl md:text-2xl font-semibold text-center mb-6">
+        {title}
+      </h3>
       <div className="overflow-hidden w-full">
         <motion.div
           className="flex gap-12 px-6"
@@ -57,7 +56,7 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ title, logos }) => {
   );
 };
 
-// Content Sections
+// Static sections
 const sections = [
   {
     name: 'mission',
@@ -82,7 +81,7 @@ const sections = [
   },
 ];
 
-// Logo image paths (should be in /public/logos/)
+// Placeholder logos
 const clientLogos = [
   '/logos/client1.png',
   '/logos/client2.png',
@@ -99,8 +98,7 @@ const industryLogos = [
   '/logos/industry5.png',
 ];
 
-// Main About Section
-const AboutSection: React.FC = () => {
+const AboutSection = () => {
   return (
     <main className="bg-black text-white">
       <Navbar />
@@ -121,7 +119,9 @@ const AboutSection: React.FC = () => {
                   <>
                     <h2
                       className={`text-4xl font-extrabold tracking-wide ${
-                        section.name === 'values' ? 'text-gray-400' : 'text-white'
+                        section.name === 'values'
+                          ? 'text-gray-400'
+                          : 'text-white'
                       }`}
                     >
                       {section.title}
@@ -145,7 +145,9 @@ const AboutSection: React.FC = () => {
                     />
                     <h2
                       className={`text-4xl font-extrabold tracking-wide ${
-                        section.name === 'values' ? 'text-gray-400' : 'text-white'
+                        section.name === 'values'
+                          ? 'text-gray-400'
+                          : 'text-white'
                       }`}
                     >
                       {section.title}
@@ -161,7 +163,6 @@ const AboutSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Logo carousels */}
       <div className="px-6 max-w-6xl mx-auto">
         <LogoCarousel title="Our Clients" logos={clientLogos} />
         <LogoCarousel title="Industries We Serve" logos={industryLogos} />
