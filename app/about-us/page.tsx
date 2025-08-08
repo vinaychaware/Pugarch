@@ -4,11 +4,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import React from 'react';
 
-// Auto-scrolling carousel motion variants
+// Animation for auto-scrolling carousel
 const scrollVariants = {
   animate: {
-    x: ['0%', '-50%'], // scroll halfway through duplicated content
+    x: ['0%', '-50%'],
     transition: {
       x: {
         repeat: Infinity,
@@ -20,8 +21,13 @@ const scrollVariants = {
   },
 };
 
-// 🔁 Reusable logo carousel with circular logos and infinite scroll
-const LogoCarousel = ({ title, logos }: { title: string; logos: string[] }) => {
+// Logo Carousel Component
+type LogoCarouselProps = {
+  title: string;
+  logos: string[];
+};
+
+const LogoCarousel: React.FC<LogoCarouselProps> = ({ title, logos }) => {
   return (
     <div className="my-24">
       <h3 className="text-xl md:text-2xl font-semibold text-center mb-6">{title}</h3>
@@ -51,7 +57,7 @@ const LogoCarousel = ({ title, logos }: { title: string; logos: string[] }) => {
   );
 };
 
-// ➕ Static content blocks
+// Content Sections
 const sections = [
   {
     name: 'mission',
@@ -76,7 +82,7 @@ const sections = [
   },
 ];
 
-// 🖼️ Replace these with your real logo image paths (in /public/logos/)
+// Logo image paths (should be in /public/logos/)
 const clientLogos = [
   '/logos/client1.png',
   '/logos/client2.png',
@@ -93,7 +99,8 @@ const industryLogos = [
   '/logos/industry5.png',
 ];
 
-const AboutSection = () => {
+// Main About Section
+const AboutSection: React.FC = () => {
   return (
     <main className="bg-black text-white">
       <Navbar />
@@ -146,13 +153,15 @@ const AboutSection = () => {
                   </>
                 )}
               </div>
-              <p className="text-gray-300 max-w-2xl text-lg leading-relaxed">{section.content}</p>
+              <p className="text-gray-300 max-w-2xl text-lg leading-relaxed">
+                {section.content}
+              </p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* 🌀 Auto-scrolling logo sections */}
+      {/* Logo carousels */}
       <div className="px-6 max-w-6xl mx-auto">
         <LogoCarousel title="Our Clients" logos={clientLogos} />
         <LogoCarousel title="Industries We Serve" logos={industryLogos} />
