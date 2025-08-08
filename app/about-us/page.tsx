@@ -8,7 +8,7 @@ import Image from 'next/image';
 // ✅ Fixed: Framer Motion animation config
 const scrollVariants: Variants = {
   animate: {
-    x: ['0%', '-50%'],
+     x: [0, -500],
     transition: {
       repeat: Infinity,
       repeatType: 'loop', // ✅ Correct type
