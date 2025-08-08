@@ -83,19 +83,22 @@ const sections = [
 
 // Placeholder logos
 const clientLogos = [
-  '/logos/client1.png',
-  '/logos/client2.png',
-  '/logos/client3.png',
-  '/logos/client4.png',
-  '/logos/client5.png',
+  '/images/client1.jpg',
+  '/images/client2.png',
+  '/images/client3.jpg',
+  '/images/client4.png',
+  '/images/client4.png',
 ];
 
 const industryLogos = [
-  '/logos/industry1.png',
-  '/logos/industry2.png',
-  '/logos/industry3.png',
-  '/logos/industry4.png',
-  '/logos/industry5.png',
+  '/images/industry1.png',
+  '/images/industry2.png',
+  '/images/industry3.png',
+  '/images/industry4.png',
+  '/images/industry5.png',
+  '/images/industry6.png',
+  '/images/industry7.png',
+  '/images/industry8.png'
 ];
 
 const AboutSection = () => {
