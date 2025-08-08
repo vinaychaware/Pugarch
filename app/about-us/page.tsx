@@ -177,3 +177,5 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
+
+'use client';
