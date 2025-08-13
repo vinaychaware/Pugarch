@@ -186,3 +186,13 @@ html, body {
   z-index: -1;
 }
   
+.text-video-mask h1,
+.text-video-mask h2,
+.text-video-mask p {
+  background: url("/video/neon.mp4") no-repeat center;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
