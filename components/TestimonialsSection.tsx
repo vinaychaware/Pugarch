@@ -156,7 +156,7 @@ const TestimonialSection = () => {
           </div>
 
           <p className="italic text-gray-300 text-lg leading-relaxed mb-8 text-center">
-            "{clients[selected].message}"
+            {clients[selected].message}
           </p>
 
           <div className="flex items-center justify-center gap-4">
