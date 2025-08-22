@@ -110,10 +110,10 @@ export default function ProductScrollSection() {
   <h1 className="text-3xl md:text-5xl font-extrabold text-white">
     Our <span className="text-violet-400">Products</span>
   </h1>
-  <p className="text-gray-400 mt-1 text-base md:text-lg max-w-3xl mx-auto">
+  {/* <p className="text-gray-400 mt-1 text-base md:text-lg max-w-3xl mx-auto">
     Explore our suite of smart solutions designed to streamline operations,
     empower teams, and enhance productivity.
-  </p>
+  </p> */}
 </div>
       <div
         ref={scrollRef}
