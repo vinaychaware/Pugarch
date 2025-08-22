@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="relative bg-black h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-      {/* Neon Arc Video */}
+      {/* 🔹 Neon Arc Video */}
       <div className="absolute inset-0">
         <video
           src="/video/neon.mp4"
@@ -15,7 +15,7 @@ const Hero = () => {
         />
       </div>
 
-      {/* Foreground Content */}
+      {/* 🔹 Foreground Content */}
       <div className="relative z-10 max-w-3xl">
         <h2 className="text-sm md:text-base text-white uppercase tracking-wider mb-2 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
           We Are
@@ -24,12 +24,10 @@ const Hero = () => {
           PUGARCH
         </h1>
 
-        {/* Tagline */}
         <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white drop-shadow-[0_0_12px_rgba(0,0,0,0.8)]">
           Turning Ideas into Intelligent Solutions
         </h3>
 
-        {/* Intro */}
         <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
           At PugArch Technology Pvt. Ltd., we create innovative digital solutions that help 
           businesses work smarter, faster, and more efficiently. From dynamic websites and 
@@ -37,7 +35,7 @@ const Hero = () => {
           support, we are your trusted partner in digital transformation.
         </p>
 
-        {/* CTA Buttons */}
+        {/* 🔹 CTA Buttons */}
         <div className="flex justify-center gap-4">
           <a
             href="#services"
@@ -64,8 +62,8 @@ const Hero = () => {
 };
 
 const WhyPugArch = () => {
-  // Variants for staggered animation
-  const container = {
+  // ✅ Typed Variants
+  const container: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
@@ -78,9 +76,13 @@ const WhyPugArch = () => {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -143,6 +145,6 @@ const WhyPugArch = () => {
   );
 };
 
-// ✅ Correct exports
+// ✅ Exports
 export default Hero;
 export { WhyPugArch };
