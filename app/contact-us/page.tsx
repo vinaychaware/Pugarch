@@ -93,21 +93,22 @@ const Contact = () => {
                   {options.map((option, index) => (
                     <label
                       key={index}
-                      className={`block rounded-md px-4 py-3 border transition-all cursor-pointer ${
-                        selectedOptions.includes(option)
-                          ? 'bg-violet-600 border-violet-600 text-white'
-                          : 'border-white/20 text-gray-300 hover:border-violet-500 hover:text-white'
-                      }`}
-                      onClick={() => handleToggle(option)}
+                      className="flex items-center space-x-3 p-3 rounded-md border border-white/20 cursor-pointer hover:border-violet-500 transition-all"
                     >
                       <input
                         type="checkbox"
                         value={option}
                         checked={selectedOptions.includes(option)}
                         onChange={() => handleToggle(option)}
-                        className="hidden"
+                        className="w-5 h-5 accent-violet-600 rounded cursor-pointer"
                       />
-                      {option}
+                      <span
+                        className={`${
+                          selectedOptions.includes(option) ? 'text-white font-medium' : 'text-gray-300'
+                        }`}
+                      >
+                        {option}
+                      </span>
                     </label>
                   ))}
                   <button
