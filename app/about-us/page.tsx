@@ -1,44 +1,65 @@
-'use client';
+'use client'
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import { motion, Variants } from 'framer-motion'
+import Image from 'next/image'
 
-// ✅ Fixed: Framer Motion animation config
-const scrollVariants: Variants = {
-  animate: {
-     x: [0, -500],
+// ✅ Section reveal animation
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
     transition: {
-      repeat: Infinity,
-      repeatType: 'loop', // ✅ Correct type
-      duration: 20,
-      ease: 'linear',
+      duration: 0.8,
+      delay: i * 0.3,
+      ease: 'easeOut',
     },
-  },
-};
+  }),
+}
+
+// ✅ Logo hover pop
+const logoHover = {
+  hover: { scale: 1.15, rotate: 5, transition: { duration: 0.3 } },
+}
 
 const LogoCarousel = ({
   title,
   logos,
 }: {
-  title: string;
-  logos: string[];
+  title: string
+  logos: string[]
 }) => {
   return (
     <div className="my-24">
-      <h3 className="text-xl md:text-2xl font-semibold text-center mb-6">
+      <motion.h3
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-xl md:text-2xl font-semibold text-center mb-6"
+      >
         {title}
-      </h3>
+      </motion.h3>
+
+      {/* ✅ Continuous Marquee */}
       <div className="overflow-hidden w-full">
         <motion.div
           className="flex gap-12 px-6"
-          variants={scrollVariants}
-          animate="animate"
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 25, // Adjust speed here
+          }}
         >
           {[...logos, ...logos].map((logo, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={logoHover}
+              whileHover="hover"
               className="w-[100px] h-[100px] bg-white rounded-full p-3 shadow-md flex items-center justify-center shrink-0"
             >
               <Image
@@ -48,15 +69,15 @@ const LogoCarousel = ({
                 height={70}
                 className="object-contain rounded-full grayscale hover:grayscale-0 transition duration-300"
               />
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-// Static sections
+// Static About Sections
 const sections = [
   {
     name: 'mission',
@@ -79,16 +100,16 @@ const sections = [
     content:
       'At the heart of everything we do is a commitment to purposeful innovation, human-centric design, and meaningful impact. We believe in solving real problems through collaboration, empathy, and forward-thinking approach.',
   },
-];
+]
 
-// Placeholder logos
+// Logos
 const clientLogos = [
   '/images/client1.jpg',
   '/images/client2.png',
   '/images/client3.jpg',
   '/images/client4.png',
   '/images/client4.png',
-];
+]
 
 const industryLogos = [
   '/images/industry1.png',
@@ -98,26 +119,34 @@ const industryLogos = [
   '/images/industry5.png',
   '/images/industry6.png',
   '/images/industry7.png',
-  '/images/industry8.png'
-];
+  '/images/industry8.png',
+]
 
 const AboutSection = () => {
   return (
     <main className="bg-black text-white">
       <Navbar />
 
+      {/* About Sections */}
       <section className="py-24 px-6 min-h-screen">
         <div className="max-w-5xl mx-auto space-y-40">
           {sections.map((section, index) => (
             <motion.div
               key={section.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
-              viewport={{ once: true, amount: 0.5 }}
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={index}
+              viewport={{ once: true, amount: 0.4 }}
               className="flex flex-col items-center text-center gap-6"
             >
-              <div className="flex items-center gap-4">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4"
+              >
                 {index % 2 === 0 ? (
                   <>
                     <h2
@@ -157,15 +186,23 @@ const AboutSection = () => {
                     </h2>
                   </>
                 )}
-              </div>
-              <p className="text-gray-300 max-w-2xl text-lg leading-relaxed">
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-gray-300 max-w-2xl text-lg leading-relaxed"
+              >
                 {section.content}
-              </p>
+              </motion.p>
             </motion.div>
           ))}
         </div>
       </section>
 
+      {/* Logos */}
       <div className="px-6 max-w-6xl mx-auto">
         <LogoCarousel title="Our Clients" logos={clientLogos} />
         <LogoCarousel title="Industries We Serve" logos={industryLogos} />
@@ -173,7 +210,7 @@ const AboutSection = () => {
 
       <Footer />
     </main>
-  );
-};
+  )
+}
 
-export default AboutSection;
+export default AboutSection

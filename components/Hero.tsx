@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 
-
 const Hero = () => {
   return (
     <section className="relative bg-black h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
@@ -66,56 +65,80 @@ const Hero = () => {
 };
 
 const WhyPugArch = () => {
+  // Variants for staggered animation
+  const container = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.25,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <section className="relative bg-black text-white py-20 px-6 md:px-12 text-center overflow-hidden">
-      {/* 🔮 Background Glow Effect */}
-      {/* <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(128,0,255,0.4),transparent_70%)]" />
-       </div> */}
-
-      {/* Content with Animation */}
       <motion.div
         className="relative z-10 max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: true }}
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+        <motion.h2
+          variants={item}
+          className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]"
+        >
           Why PugArch?
-        </h2>
+        </motion.h2>
 
-        {/* ✅ New tagline */}
-        <p className="text-xl font-semibold text-purple-300 mb-6">
+        <motion.p
+          variants={item}
+          className="text-xl font-semibold text-purple-300 mb-6"
+        >
           We are PugArch — transforming ideas into powerful digital solutions.
-        </p>
+        </motion.p>
 
-        <p className="text-lg text-gray-300 mb-10">
-          We don’t just develop software — we engineer business-changing experiences.
-        </p>
+        <motion.p variants={item} className="text-lg text-gray-300 mb-10">
+          We don’t just develop software — we engineer business-changing
+          experiences.
+        </motion.p>
 
-        <div className="space-y-6 text-left max-w-2xl mx-auto">
-          <p className="flex items-start gap-3">
+        <motion.div
+          variants={container}
+          className="space-y-6 text-left max-w-2xl mx-auto"
+        >
+          <motion.p variants={item} className="flex items-start gap-3">
             <span className="text-xl">🚀</span>
             <span className="text-gray-200">
-              <strong>Custom Development –</strong> High-performance web & mobile applications.
+              <strong>Custom Development –</strong> High-performance web & mobile
+              applications.
             </span>
-          </p>
+          </motion.p>
 
-          <p className="flex items-start gap-3">
+          <motion.p variants={item} className="flex items-start gap-3">
             <span className="text-xl">☁️</span>
             <span className="text-gray-200">
               <strong>SaaS Solutions –</strong> Agile, scalable, and cloud-ready.
             </span>
-          </p>
+          </motion.p>
 
-          <p className="flex items-start gap-3">
+          <motion.p variants={item} className="flex items-start gap-3">
             <span className="text-xl">📊</span>
             <span className="text-gray-200">
-              <strong>Business Systems –</strong> Facility, field, and workforce management tools that deliver measurable impact.
+              <strong>Business Systems –</strong> Facility, field, and workforce
+              management tools that deliver measurable impact.
             </span>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </motion.div>
     </section>
   );

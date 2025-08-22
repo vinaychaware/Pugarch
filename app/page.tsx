@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero, { WhyPugArch } from "../components/Hero";
 import AboutSection from "../components/AboutSection";
-import MilestoneSection from "../components/MilestoneSection";
-import ServicesSection from "../components/ServicesSection"; // ✅ Services integrated properly
+// import MilestoneSection from "../components/MilestoneSection";
+import ServicesSection from "../components/ServicesSection"; 
 import ProductsSection from "../components/ProductsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import Footer from "../components/Footer";
@@ -47,8 +47,8 @@ export default function Home() {
           <Hero />
           <WhyPugArch />
           <AboutSection />
-          <MilestoneSection />
-          <ServicesSection /> {/* ✅ Services Section goes here */}
+          {/* <MilestoneSection /> */}
+          <ServicesSection /> 
           <ProductsSection />
           <TestimonialsSection />
           <Footer />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Linkedin, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
 
 const socialLinks = [
@@ -7,6 +8,15 @@ const socialLinks = [
   { href: '#', icon: <Facebook size={18} />, label: 'Facebook' },
   { href: '#', icon: <Instagram size={18} />, label: 'Instagram' },
   { href: '#', icon: <Mail size={18} />, label: 'Email' },
+];
+
+const quickLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '#services' },
+  { name: 'About Us', href: '#about' },
+  { name: 'Blog', href: '/blog' }, // ✅ if you plan to add blog pages
+  { name: 'Products', href: '#products' },
+  { name: 'Contact Us', href: '#contact' },
 ];
 
 export default function Footer() {
@@ -33,7 +43,7 @@ export default function Footer() {
                 className="w-48 h-auto mb-3"
               />
               <p className="text-gray-400 text-sm">
-                PugArch - Shaping Tomorrow's Tech Landscape
+                PugArch - Shaping Tomorrow&apos;s Tech Landscape
               </p>
             </div>
 
@@ -59,12 +69,16 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Home</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Services</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Products</a></li>
-              <li><a href="#" className="hover:text-white transition-colors duration-200">Contact Us</a></li>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -77,7 +91,7 @@ export default function Footer() {
               </p>
               <p>
                 <span className="font-medium text-white">Branch Office:</span> Mumbai Off No.128, 1st Floor Raghuleela Mega Mall, 
-                Boraspada Road,Behind Poisar Bus Depot, Kandivali(W),Mumbai-400067, 
+                Boraspada Road, Behind Poisar Bus Depot, Kandivali(W), Mumbai-400067, 
                 Maharashtra
               </p>
               <div className="space-y-1">

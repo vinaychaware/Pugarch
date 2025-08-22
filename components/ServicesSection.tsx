@@ -71,7 +71,7 @@ const ServiceBlock = ({ service, index }: { service: any; index: number }) => {
       }`}
       initial={{ opacity: 0, y: 100 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-      transition={{ duration: 0.8, ease: 'easeOut', delay: index * 0.2 }}
+      transition={{ duration: 0.2, ease: 'easeOut', delay: index * 0.1 }}
     >
       {/* Background Image Behind Each Block */}
       <Image
@@ -86,7 +86,7 @@ const ServiceBlock = ({ service, index }: { service: any; index: number }) => {
         className="w-full md:w-1/2 flex justify-center z-10"
         initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       >
         <Image
           src={service.image}
@@ -102,7 +102,7 @@ const ServiceBlock = ({ service, index }: { service: any; index: number }) => {
         className="w-full md:w-1/2 z-10"
         initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        transition={{ duration: 0.2, ease: 'easeOut', delay: 0.05 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
           {service.title}
@@ -124,6 +124,17 @@ export default function ServicesSection() {
   return (
     <section className="relative z-10 py-20 px-4 md:px-12 lg:px-24 bg-black text-white">
       <div className="max-w-7xl mx-auto space-y-32 relative z-10">
+
+        {/* Animated Services Heading */}
+        <motion.h1
+          className="text-4xl md:text-5xl font-extrabold text-center mb-20 text-white"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
+          Our <span className="text-indigo-500">Services</span>
+        </motion.h1>
+
         {services.map((service, index) => (
           <ServiceBlock key={index} service={service} index={index} />
         ))}
