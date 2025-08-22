@@ -106,25 +106,24 @@ export default function ProductScrollSection() {
 
   return (
     <div className="horizontal-section h-screen w-full overflow-hidden bg-black relative">
+            <div className="text-center mb-0">
+  <h1 className="text-3xl md:text-5xl font-extrabold text-white">
+    Our <span className="text-violet-400">Products</span>
+  </h1>
+  <p className="text-gray-400 mt-1 text-base md:text-lg max-w-3xl mx-auto">
+    Explore our suite of smart solutions designed to streamline operations,
+    empower teams, and enhance productivity.
+  </p>
+</div>
       <div
         ref={scrollRef}
         className="horizontal-scroll-wrapper flex w-[400vw] h-screen"
       >
         {productData.map((item, index) => (
           <section
-            key={index}
-            className="panel w-screen h-screen flex flex-col items-center justify-start px-6 md:px-12 lg:px-24 pt-24"
-          >
-            {/* ✅ Heading over each product */}
-            <div className="text-center mb-10">
-              <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                Our <span className="text-violet-400">Products</span>
-              </h1>
-              <p className="text-gray-400 mt-2 text-base md:text-lg max-w-3xl mx-auto">
-                Explore our suite of smart solutions designed to streamline operations,
-                empower teams, and enhance productivity.
-              </p>
-            </div>
+  key={index}
+  className="panel w-screen h-screen flex flex-col items-center justify-start px-6 md:px-12 lg:px-24 pt-10"
+>
 
             {/* Product Content */}
             <div className="flex flex-col md:flex-row items-center gap-12 max-w-7xl h-full justify-center">

@@ -8,6 +8,7 @@ import AboutSection from "../components/AboutSection";
 // import MilestoneSection from "../components/MilestoneSection";
 import ServicesSection from "../components/ServicesSection"; 
 import ProductsSection from "../components/ProductsSection";
+import ClientsSection from "../components/ClientsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
@@ -32,7 +33,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#000000] text-white overflow-x-hidden scroll-smooth">
       {isLoading ? (
         <div
           className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out bg-black z-50 ${
@@ -44,13 +45,26 @@ export default function Home() {
       ) : (
         <div className="animate-fade-in">
           <Navbar />
-          <Hero />
+          <section id="home">
+            <Hero />
+          </section>
           <WhyPugArch />
-          <AboutSection />
+          <section id="about">
+            <AboutSection />
+          </section>
           {/* <MilestoneSection /> */}
-          <ServicesSection /> 
-          <ProductsSection />
-          <TestimonialsSection />
+          <section id="services">
+            <ServicesSection />
+          </section>
+          <section id="products">
+            <ProductsSection />
+          </section>
+          <section id="clients">
+            <ClientsSection />
+          </section>
+          <section id="testimonials">
+            <TestimonialsSection />
+          </section>
           <Footer />
         </div>
       )}

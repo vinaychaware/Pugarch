@@ -11,16 +11,16 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about-us" },
-    // { name: "Milestone", href: "/milestone" },
-    // { name: "Products", href: "/products" },
-    // { name: "Services", href: "/serv" },
+    { name: "About Us", href: "#about" },
+    { name: "Products", href: "#products" },
+    { name: "Services", href: "#services" },
+    { name: "Clients", href: "#clients" },
+    { name: "Testimonials", href: "#testimonials" },
     { name: "Blog", href: "/blog" },
   ];
 
   return (
     <header className="mx-auto mt-4 max-w-[1440px] w-[95%] border border-black bg-black backdrop-blur-sm overflow-hidden">
-
       {/* Central Glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
         <div className="w-[600px] h-[300px] rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.35)_0%,_rgba(0,0,0,0.9)_70%)] blur-2xl"></div>
@@ -46,6 +46,7 @@ const Navbar = () => {
               key={item.name}
               href={item.href}
               className="text-gray-200 text-sm font-medium hover:text-violet-400 transition-colors duration-300 relative group"
+              scroll={true}
             >
               {item.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
@@ -79,6 +80,7 @@ const Navbar = () => {
                 href={item.href}
                 className="text-gray-300 hover:text-violet-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
+                scroll={true}
               >
                 {item.name}
               </Link>
