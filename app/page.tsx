@@ -109,14 +109,14 @@ export default function Home() {
           </motion.section>
 
           {/* Why Section */}
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={sectionVariants}
           >
             <WhyPugArch />
-          </motion.div>
+          </motion.div> */}
 
           {/* About */}
           <motion.section
