@@ -9,7 +9,7 @@ import ServicesSection from "../components/ServicesSection"
 import Footer from "../components/Footer"
 import Loader from "../components/Loader"
 import { ArrowUp } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, easeOut } from "framer-motion" // ✅ import easing function
 
 // 🚀 Lazy load heavy sections
 const ProductsSection = dynamic(() => import("../components/ProductsSection"), { ssr: false })
@@ -18,7 +18,6 @@ const TestimonialsSection = dynamic(() => import("../components/TestimonialsSect
 
 /**
  * Temporary inline WhyPugArch component
- * — Put this into components/WhyPugArch.tsx and import later if you'd like.
  */
 function WhyPugArch() {
   const reasons = [
@@ -79,10 +78,10 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  // Animation Variants
+  // ✅ Fixed easing type
   const sectionVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
   }
 
   return (
@@ -104,7 +103,7 @@ export default function Home() {
             id="home"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: easeOut }} // ✅ fixed
           >
             <Hero />
           </motion.section>
@@ -184,7 +183,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, ease: easeOut }} // ✅ fixed
             >
               <ArrowUp size={20} />
             </motion.button>
