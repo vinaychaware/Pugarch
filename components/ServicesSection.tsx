@@ -17,7 +17,7 @@ const services = [
       'Secure hosting integration',
       'E-commerce-ready solutions',
     ],
-    image: '/images/3k.png',
+    image: '/images/website development dashboard.png',
   },
   {
     title: 'Mobile Application Development',
@@ -30,7 +30,7 @@ const services = [
       'Backend system integration',
       'User-centric design with offline mode',
     ],
-    image: '/images/3k.png',
+    image: '/images/Mobile app mob.png',
   },
   {
     title: 'Customized Web App Development',
@@ -43,7 +43,7 @@ const services = [
       'Role-based access control',
       'High-level security & optimization',
     ],
-    image: '/images/3k.png',
+    image: '/images/customised web app dashboard.png',
   },
   {
     title: 'Resource Provider',
@@ -52,10 +52,10 @@ const services = [
     features: [
       'Experienced technology experts',
       'Flexible hiring models (short-term/long-term)',
-      'Transparent pricing',
+      'Transparent pricing', 
       'Quick onboarding process',
     ],
-    image: '/images/3k.png',
+    image: '/images/999.png',
   },
 ];
 

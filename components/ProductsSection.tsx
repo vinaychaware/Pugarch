@@ -39,7 +39,7 @@ const productData = [
       'SOS emergency alerts',
       'Offline mode functionality',
     ],
-    image: '/images/3k.png',
+    image: '/images/Field mngmnt mob.png',
     bgImage: '/images/wave.png',
   },
   {
@@ -54,7 +54,7 @@ const productData = [
       'Compliance & vendor management',
       'Multi-location dashboards',
     ],
-    image: '/images/3k.png',
+    image: '/images/FM mob .src.png',
     bgImage: '/images/wave.png',
   },
   {
@@ -70,7 +70,7 @@ const productData = [
       'Incident reporting with photo/video proof',
       'Offline sync-enabled dashboard',
     ],
-    image: '/images/3k.png',
+    image: '/images/Forest mngmnt mob.png',
     bgImage: '/images/wave.png',
   },
 ]
