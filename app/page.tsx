@@ -14,7 +14,7 @@ import { motion, easeOut } from "framer-motion" // ✅ import easing function
 // 🚀 Lazy load heavy sections
 const ProductsSection = dynamic(() => import("../components/ProductsSection"), { ssr: false })
 const ClientsSection = dynamic(() => import("../components/ClientsSection"), { ssr: false })
-const TestimonialsSection = dynamic(() => import("../components/TestimonialsSection"), { ssr: false })
+// const TestimonialsSection = dynamic(() => import("../components/TestimonialsSection"), { ssr: false })
 
 /**
  * Temporary inline WhyPugArch component
@@ -163,7 +163,7 @@ export default function Home() {
           </motion.section>
 
           {/* Testimonials */}
-          <motion.section
+          {/* <motion.section
             id="testimonials"
             initial="hidden"
             whileInView="visible"
@@ -171,7 +171,7 @@ export default function Home() {
             variants={sectionVariants}
           >
             <TestimonialsSection />
-          </motion.section>
+          </motion.section> */}
 
           <Footer />
 
