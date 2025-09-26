@@ -46,13 +46,13 @@ const Hero = () => {
         <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white drop-shadow-[0_0_12px_rgba(0,0,0,0.8)]">
           Turning Ideas into Intelligent Solutions
         </h3>
-        <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
+        {/* <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
           At PugArch Technology Pvt. Ltd., we create innovative digital solutions
           that help businesses work smarter, faster, and more efficiently. From
           dynamic websites and engaging mobile apps to powerful custom software
           and skilled technology resource support, we are your trusted partner in
           digital transformation.
-        </p>
+        </p> */}
 
         {/* 🔹 CTA Buttons */}
         <div className="flex justify-center gap-4">
